@@ -18,6 +18,3 @@ provider "aws" {
   alias = "us-west-2"
   region = "us-west-2"
 }
-
-# The AWS account ID being used
-data "aws_caller_identity" "current" {}
