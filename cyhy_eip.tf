@@ -1,7 +1,8 @@
 # TODO: Find a good way to reduce the duplication here
 resource "aws_eip" "cyhy_us_east_1" {
   count = "${var.aws_eips_per_region["us-east-1"]}"
-  provider = "aws.us-east-1"
+  # us-east-1 is the default provider, so there is no need to specify
+  # a provider here
   vpc = true
   tags = "${merge(var.tags, map("Name", "CyHy EIP (us-east-1)"))}"
 }
