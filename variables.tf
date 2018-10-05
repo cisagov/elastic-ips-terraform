@@ -1,8 +1,3 @@
-variable "aws_region" {
-  description = "The AWS region to deploy into (e.g. us-east-1)."
-  default = "us-east-1"
-}
-
 variable "aws_eips_per_region" {
   type = "map"
   description = "The number of elastic IPs to create per AWS region."
