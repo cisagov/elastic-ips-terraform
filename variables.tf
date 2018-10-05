@@ -10,5 +10,7 @@ variable "aws_eips_per_region" {
 variable "tags" {
   type = "map"
   description = "Tags to apply to all AWS resources created"
-  default = {}
+  default = {
+    "Publish Egress" = "True"
+  }
 }
