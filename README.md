@@ -30,49 +30,45 @@ terraform init
 terraform destroy -var-file=<your_workspace>.tfvars
 ```
 
-## Requirements ##
+## Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | ~> 1.0 |
 | aws | ~> 3.38 |
 
-## Providers ##
+## Providers
 
 | Name | Version |
 |------|---------|
 | aws | ~> 3.38 |
+| aws.us-east-2 | ~> 3.38 |
+| aws.us-west-1 | ~> 3.38 |
+| aws.us-west-2 | ~> 3.38 |
 
-## Modules ##
+## Modules
 
 No modules.
 
-## Resources ##
+## Resources
 
 | Name | Type |
 |------|------|
-| [aws_instance.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
-| [aws_ami.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
-| [aws_default_tags.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/default_tags) | data source |
+| [aws_eip.cyhy_us_east_1](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
+| [aws_eip.cyhy_us_east_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
+| [aws_eip.cyhy_us_west_1](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
+| [aws_eip.cyhy_us_west_2](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip) | resource |
 
-## Inputs ##
+## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ami\_owner\_account\_id | The ID of the AWS account that owns the Example AMI, or "self" if the AMI is owned by the same account as the provisioner. | `string` | `"self"` | no |
-| aws\_availability\_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.). | `string` | `"a"` | no |
-| aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
-| subnet\_id | The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0). | `string` | n/a | yes |
+| aws\_eips\_per\_region | The number of elastic IPs to create per AWS region. | `map(number)` | ```{ "us-east-1": 0, "us-east-2": 0, "us-west-1": 0, "us-west-2": 0 }``` | no |
+| tags | Tags to apply to all AWS resources created. | `map(string)` | ```{ "Publish Egress": "True" }``` | no |
 
-## Outputs ##
+## Outputs
 
-| Name | Description |
-|------|-------------|
-| arn | The EC2 instance ARN. |
-| availability\_zone | The AZ where the EC2 instance is deployed. |
-| id | The EC2 instance ID. |
-| private\_ip | The private IP of the EC2 instance. |
-| subnet\_id | The ID of the subnet where the EC2 instance is deployed. |
+No outputs.
 
 ## Notes ##
 
