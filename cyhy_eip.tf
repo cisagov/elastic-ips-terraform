@@ -72,4 +72,3 @@ resource "aws_eip" "cyhy_us_west_2" {
     prevent_destroy = true
   }
 }
-

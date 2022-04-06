@@ -7,4 +7,3 @@ terraform {
     key            = "elastic_ips/terraform.tfstate"
   }
 }
-
